@@ -19,4 +19,4 @@ spring:
                 globally_quoted_identifiers: false
                 format_sql: true
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
