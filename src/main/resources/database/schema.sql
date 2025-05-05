@@ -5,7 +5,7 @@
 /* Drop existing tables  */
 DROP TABLE IF EXISTS orderdetails cascade;
 DROP TABLE IF EXISTS products cascade;
-DROP TABLE IF EXISTS productlines cascade;
+DROP TABLE IF EXISTS product_lines cascade;
 DROP TABLE IF EXISTS payments cascade;
 DROP TABLE IF EXISTS orders cascade;
 DROP TABLE IF EXISTS customers cascade;
@@ -13,12 +13,12 @@ DROP TABLE IF EXISTS employees cascade;
 DROP TABLE IF EXISTS offices cascade;
 
 /* Create the tables */
-CREATE TABLE productlines (
-                              productLine varchar(50),
-                              textDescription varchar(4000) DEFAULT NULL,
-                              htmlDescription mediumtext,
+CREATE TABLE product_lines (
+                              product_line varchar(50),
+                              text_description varchar(4000) DEFAULT NULL,
+                              html_description mediumtext,
                               image mediumblob,
-                              PRIMARY KEY (productLine)
+                              PRIMARY KEY (product_line)
 );
 
 CREATE TABLE products (
@@ -32,7 +32,7 @@ CREATE TABLE products (
                           buyPrice decimal(10,2) NOT NULL,
                           MSRP decimal(10,2) NOT NULL,
                           PRIMARY KEY (productCode),
-                          FOREIGN KEY (productLine) REFERENCES productlines (productLine)
+                          FOREIGN KEY (productLine) REFERENCES product_lines (product_line)
 );
 
 CREATE TABLE offices (
