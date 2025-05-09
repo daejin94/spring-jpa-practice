@@ -39,16 +39,16 @@ CREATE TABLE products
 
 CREATE TABLE offices
 (
-    officeCode   varchar(10),
-    city         varchar(50) NOT NULL,
-    phone        varchar(50) NOT NULL,
-    addressLine1 varchar(50) NOT NULL,
-    addressLine2 varchar(50) DEFAULT NULL,
-    state        varchar(50) DEFAULT NULL,
-    country      varchar(50) NOT NULL,
-    postalCode   varchar(15) NOT NULL,
-    territory    varchar(10) NOT NULL,
-    PRIMARY KEY (officeCode)
+    office_code   varchar(10),
+    city          varchar(50) NOT NULL,
+    phone         varchar(50) NOT NULL,
+    address_line1 varchar(50) NOT NULL,
+    address_line2 varchar(50) DEFAULT NULL,
+    state         varchar(50) DEFAULT NULL,
+    country       varchar(50) NOT NULL,
+    postal_code   varchar(15) NOT NULL,
+    territory     varchar(10) NOT NULL,
+    PRIMARY KEY (office_code)
 );
 
 CREATE TABLE employees
@@ -59,11 +59,11 @@ CREATE TABLE employees
     extension      varchar(10)  NOT NULL,
     email          varchar(100) NOT NULL,
     officeCode     varchar(10)  NOT NULL,
-    reportsTo      int DEFAULT NULL,
+    reportsTo      int DEFAULT NULL, -- 상사를 의미한다고 함
     jobTitle       varchar(50)  NOT NULL,
     PRIMARY KEY (employeeNumber),
     FOREIGN KEY (reportsTo) REFERENCES employees (employeeNumber),
-    FOREIGN KEY (officeCode) REFERENCES offices (officeCode)
+    FOREIGN KEY (officeCode) REFERENCES offices (office_code)
 );
 
 CREATE TABLE customers
