@@ -53,17 +53,17 @@ CREATE TABLE offices
 
 CREATE TABLE employees
 (
-    employeeNumber int,
-    lastName       varchar(50)  NOT NULL,
-    firstName      varchar(50)  NOT NULL,
-    extension      varchar(10)  NOT NULL,
-    email          varchar(100) NOT NULL,
-    officeCode     varchar(10)  NOT NULL,
-    reportsTo      int DEFAULT NULL, -- 상사를 의미한다고 함
-    jobTitle       varchar(50)  NOT NULL,
-    PRIMARY KEY (employeeNumber),
-    FOREIGN KEY (reportsTo) REFERENCES employees (employeeNumber),
-    FOREIGN KEY (officeCode) REFERENCES offices (office_code)
+    employee_number int,
+    last_name       varchar(50)  NOT NULL,
+    first_name      varchar(50)  NOT NULL,
+    extension       varchar(10)  NOT NULL,
+    email           varchar(100) NOT NULL,
+    office_code     varchar(10)  NOT NULL,
+    reports_to      int DEFAULT NULL, -- 상사를 의미한다고 함
+    job_title       varchar(50)  NOT NULL,
+    PRIMARY KEY (employee_number),
+    FOREIGN KEY (reports_to) REFERENCES employees (employee_number),
+    FOREIGN KEY (office_code) REFERENCES offices (office_code)
 );
 
 CREATE TABLE customers
@@ -82,7 +82,7 @@ CREATE TABLE customers
     salesRepEmployeeNumber int            DEFAULT NULL,
     creditLimit            decimal(10, 2) DEFAULT NULL,
     PRIMARY KEY (customerNumber),
-    FOREIGN KEY (salesRepEmployeeNumber) REFERENCES employees (employeeNumber)
+    FOREIGN KEY (salesRepEmployeeNumber) REFERENCES employees (employee_number)
 );
 
 CREATE TABLE payments
