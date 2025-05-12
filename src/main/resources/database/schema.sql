@@ -3,7 +3,7 @@
   Link: http://www.mysqltutorial.org/mysql-sample-database.aspx
 */
 /* Drop existing tables  */
-DROP TABLE IF EXISTS orderdetails cascade;
+DROP TABLE IF EXISTS order_details cascade;
 DROP TABLE IF EXISTS products cascade;
 DROP TABLE IF EXISTS product_lines cascade;
 DROP TABLE IF EXISTS payments cascade;
@@ -108,14 +108,14 @@ CREATE TABLE orders
     FOREIGN KEY (customer_number) REFERENCES customers (customer_number)
 );
 
-CREATE TABLE orderdetails
+CREATE TABLE order_details
 (
-    orderNumber     int,
-    productCode     varchar(15)    NOT NULL,
-    quantityOrdered int            NOT NULL,
-    priceEach       decimal(10, 2) NOT NULL,
-    orderLineNumber smallint(6)    NOT NULL,
-    PRIMARY KEY (orderNumber, productCode),
-    FOREIGN KEY (orderNumber) REFERENCES orders (order_number),
-    FOREIGN KEY (productCode) REFERENCES products (product_code)
+    order_number      int,
+    product_code      varchar(15)    NOT NULL,
+    quantity_ordered  int            NOT NULL,
+    price_each        decimal(10, 2) NOT NULL,
+    order_line_number smallint(6)    NOT NULL,
+    PRIMARY KEY (order_number, product_code),
+    FOREIGN KEY (order_number) REFERENCES orders (order_number),
+    FOREIGN KEY (product_code) REFERENCES products (product_code)
 );
