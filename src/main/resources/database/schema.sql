@@ -87,12 +87,12 @@ CREATE TABLE customers
 
 CREATE TABLE payments
 (
-    customerNumber int,
-    checkNumber    varchar(50)    NOT NULL,
-    paymentDate    date           NOT NULL,
-    amount         decimal(10, 2) NOT NULL,
-    PRIMARY KEY (customerNumber, checkNumber),
-    FOREIGN KEY (customerNumber) REFERENCES customers (customer_number)
+    customer_number int,
+    check_number    varchar(50)    NOT NULL,
+    payment_date    date           NOT NULL,
+    amount          decimal(10, 2) NOT NULL,
+    PRIMARY KEY (customer_number, check_number),
+    FOREIGN KEY (customer_number) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orders
