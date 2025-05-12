@@ -97,15 +97,15 @@ CREATE TABLE payments
 
 CREATE TABLE orders
 (
-    orderNumber    int,
-    orderDate      date        NOT NULL,
-    requiredDate   date        NOT NULL,
-    shippedDate    date DEFAULT NULL,
-    status         varchar(15) NOT NULL,
-    comments       text,
-    customerNumber int         NOT NULL,
-    PRIMARY KEY (orderNumber),
-    FOREIGN KEY (customerNumber) REFERENCES customers (customer_number)
+    order_number    int,
+    order_date      date        NOT NULL,
+    required_date   date        NOT NULL,
+    shipped_date    date DEFAULT NULL,
+    status          varchar(15) NOT NULL,
+    comments        text,
+    customer_number int         NOT NULL,
+    PRIMARY KEY (order_number),
+    FOREIGN KEY (customer_number) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orderdetails
@@ -116,6 +116,6 @@ CREATE TABLE orderdetails
     priceEach       decimal(10, 2) NOT NULL,
     orderLineNumber smallint(6)    NOT NULL,
     PRIMARY KEY (orderNumber, productCode),
-    FOREIGN KEY (orderNumber) REFERENCES orders (orderNumber),
+    FOREIGN KEY (orderNumber) REFERENCES orders (order_number),
     FOREIGN KEY (productCode) REFERENCES products (product_code)
 );
