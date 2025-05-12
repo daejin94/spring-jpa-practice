@@ -68,21 +68,21 @@ CREATE TABLE employees
 
 CREATE TABLE customers
 (
-    customerNumber         int,
-    customerName           varchar(50) NOT NULL,
-    contactLastName        varchar(50) NOT NULL,
-    contactFirstName       varchar(50) NOT NULL,
-    phone                  varchar(50) NOT NULL,
-    addressLine1           varchar(50) NOT NULL,
-    addressLine2           varchar(50)    DEFAULT NULL,
-    city                   varchar(50) NOT NULL,
-    state                  varchar(50)    DEFAULT NULL,
-    postalCode             varchar(15)    DEFAULT NULL,
-    country                varchar(50) NOT NULL,
-    salesRepEmployeeNumber int            DEFAULT NULL,
-    creditLimit            decimal(10, 2) DEFAULT NULL,
-    PRIMARY KEY (customerNumber),
-    FOREIGN KEY (salesRepEmployeeNumber) REFERENCES employees (employee_number)
+    customer_number           int,
+    customer_name             varchar(50) NOT NULL,
+    contact_last_name         varchar(50) NOT NULL,
+    contact_first_name        varchar(50) NOT NULL,
+    phone                     varchar(50) NOT NULL,
+    address_line1             varchar(50) NOT NULL,
+    address_line2             varchar(50)    DEFAULT NULL,
+    city                      varchar(50) NOT NULL,
+    state                     varchar(50)    DEFAULT NULL,
+    postal_code               varchar(15)    DEFAULT NULL,
+    country                   varchar(50) NOT NULL,
+    sales_rep_employee_number int            DEFAULT NULL,
+    credit_limit              decimal(10, 2) DEFAULT NULL,
+    PRIMARY KEY (customer_number),
+    FOREIGN KEY (sales_rep_employee_number) REFERENCES employees (employee_number)
 );
 
 CREATE TABLE payments
@@ -92,7 +92,7 @@ CREATE TABLE payments
     paymentDate    date           NOT NULL,
     amount         decimal(10, 2) NOT NULL,
     PRIMARY KEY (customerNumber, checkNumber),
-    FOREIGN KEY (customerNumber) REFERENCES customers (customerNumber)
+    FOREIGN KEY (customerNumber) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orders
@@ -105,7 +105,7 @@ CREATE TABLE orders
     comments       text,
     customerNumber int         NOT NULL,
     PRIMARY KEY (orderNumber),
-    FOREIGN KEY (customerNumber) REFERENCES customers (customerNumber)
+    FOREIGN KEY (customerNumber) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orderdetails
