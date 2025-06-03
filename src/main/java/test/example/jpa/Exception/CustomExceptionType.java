@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum CustomExceptionType {
 
-    CUSTOMER_NOT_FOUND("C01", HttpStatus.NOT_FOUND, "고객을 찾지 못 했습니다.", Level.WARN),
+    CUSTOMER_NOT_FOUND("C01", HttpStatus.NOT_FOUND, "고객을 찾지 못했습니다.", Level.WARN),
 
     INTERNAL_SERVER_ERROR("Z99", HttpStatus.INTERNAL_SERVER_ERROR, "예상되지 못한 에러 입니다.", Level.ERROR);
 

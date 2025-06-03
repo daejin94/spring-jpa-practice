@@ -20,3 +20,7 @@ spring:
                 format_sql: true
         hibernate:
             ddl-auto: none
+
+logstash:
+    host: 127.0.0.1
+    port: 5000
