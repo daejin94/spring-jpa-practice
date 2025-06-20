@@ -6,7 +6,7 @@ spring:
         name: api
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/classic_models?serverTimezone=Asia/Seoul
+        url: jdbc:mysql://mysql-container:3306/classic_models?serverTimezone=Asia/Seoul
         username: root
         password: 1234
 
@@ -22,5 +22,5 @@ spring:
             ddl-auto: none
 
 logstash:
-    host: 127.0.0.1
+    host: logstash
     port: 5000
